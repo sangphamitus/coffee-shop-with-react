@@ -21,6 +21,10 @@
   #navbar-overlay li {
     list-style: none;
   }
+  #navbar-overlay li:hover {
+   color: #333333bd;
+    background-color: #efebe8;
+  }
   #navbar-overlay-bar {
     padding: 0;
   }
@@ -31,6 +35,9 @@
 #ul-r{
   border-top-right-radius: 5ex;
   border-bottom-right-radius: 5ex;
+}
+#navbar {
+  z-index: 100;
 }
 #navbar-overlay {
   display: none ;
@@ -71,8 +78,8 @@
     background-color: #333333bd;
     color: #efebe8;
   }
-  #navbar-overlay ul li {
-    z-index: 60;
+  #navbar-overlay {
+    z-index: 100;
 
   }
 }
@@ -101,4 +108,10 @@
 #menuOn
 {
   animation: inout ease-in-out 0.2s;
+}
+#menuOnOff li:hover {
+    border-left: 2px solid #333333;
+    background-color: #efebe8;
+    color: #333333;
+    font-weight: bolder;
 }

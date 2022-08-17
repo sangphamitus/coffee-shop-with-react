@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-    <div id='navbar' className='navbar mt-4 d-flex justify-content-center text-center position-absolute start-0 end-0 ml-auto mr-auto w-100'>
+    <div id='navbar' className='navbar mt-4 d-flex justify-content-center text-center position-fixed start-0 end-0 ml-auto mr-auto w-100'>
         <ul id="ul-l" className='d-flex py-2 text-align-center'>
           <li className='d-inline p-4'>HOME</li>
           <li className='d-inline p-4'>ABOUT</li>
@@ -25,8 +25,8 @@ function App() {
           <li className='d-inline p-4'>BLOG</li>
           <li className='d-inline p-4'>SHOP</li>
           <li className='d-inline p-4'>CONTACT</li>
-          <li className='d-inline p-2'> <FontAwesomeIcon icon={faMagnifyingGlass} size="xl"/></li>
-          <li className='d-inline p-3 pe-5'> <FontAwesomeIcon icon={faBagShopping} size="xl"/></li>
+          <li className='d-inline py-4'> <FontAwesomeIcon icon={faMagnifyingGlass} size="xl"/></li>
+          <li className='d-inline p-4 pe-5'> <FontAwesomeIcon icon={faBagShopping} size="xl"/></li>
         </ul>
     </div>
     <div id="navbar-overlay" className='position-absolute start-0 end-0 ml-auto mr-auto w-100'>
@@ -45,14 +45,15 @@ function App() {
         </div>
         </div>
         {menuOn?( <div id="menuOnOff" className='d-inline w-100'>
-        <ul >
-          <li className='p-3'>HOME</li>
-          <li className='p-3'>ABOUT</li>
-          <li className='p-3'>MENU</li>
-          <li className='p-3'>GALLERY</li>
-          <li className='p-3'>BLOG</li>
-          <li className='p-3'>SHOP</li>
-          <li className='p-3'>CONTACT</li>
+          <div className='border border-bottom border-light border-1 '> </div>
+        <ul className='ps-0'>
+          <li className='p-3 ps-4'>HOME</li>
+          <li className='p-3 ps-4'>ABOUT</li>
+          <li className='p-3 ps-4'>MENU</li>
+          <li className='p-3 ps-4'>GALLERY</li>
+          <li className='p-3 ps-4'>BLOG</li>
+          <li className='p-3 ps-4'>SHOP</li>
+          <li className='p-3 ps-4'>CONTACT</li>
        
         </ul>
         </div>):null}

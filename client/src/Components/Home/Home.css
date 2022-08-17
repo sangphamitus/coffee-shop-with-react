@@ -1,6 +1,41 @@
 #header-banner{
-    background: url('../../Image/Coffee-bean.jpg')  no-repeat;
+    background: url('../../Image/Coffee-bean.png') no-repeat;
+    background-size: cover;
+    z-index: -50;
+    top:0;
+    align-items: center;
+    left:0;
+
     height: 100vh;
     color:#efebe8;
+ 
+}
+.content {
+    top:25%;
+    color: #513525;
+    animation: TextAppear ease-in-out 2s;
+    font-weight: bolder;
+ 
+}
+@keyframes TextAppear {
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 20;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+#our-story {
+    background:url('../../Image/our-story1.jpg') no-repeat;
+    background-size: cover;
+    height: 50vh;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+#our-story #cont {
+    left:25%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
