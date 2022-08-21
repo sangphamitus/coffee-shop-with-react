@@ -1,0 +1,42 @@
+.time-stamp 
+{
+    background-color: #bf9456;
+    color: #fefffc;
+    left:2rem;
+    top:2rem;
+    width: 20%;
+    padding-bottom:20%;
+}
+.img-field img {
+    width: 100%;
+    height: 180px;
+}
+.time-stamp p 
+{
+    font-size: 1rem !important;
+    margin: 0;
+    padding: 0;
+}
+#blog-container 
+{
+    margin: 0;
+    padding:0;
+}
+.blog-card
+{
+    background-color: #ece8dd;  
+   
+}
+.text-field h1{
+
+    font-size:2rem;
+}
+.text-field p 
+{
+    font-size:2ex;
+}
+.text-field a:hover
+{
+    color: #bf9456;
+    text-decoration: underline !important;
+}

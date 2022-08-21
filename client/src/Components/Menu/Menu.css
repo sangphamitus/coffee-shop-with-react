@@ -1,0 +1,8 @@
+#menu-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:50vh;
+    color:white;    
+}

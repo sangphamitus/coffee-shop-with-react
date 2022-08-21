@@ -6,11 +6,30 @@
     list-style: none;
     font-size: small;
     
+    
   }
   #navbar ul {
     margin: 0;
     background-color: #333333;
     
+  }
+  #navbar li a {
+    text-decoration: none;
+    color:#efebe8;
+  }
+  #navbar li a:hover {
+    color: #b78d53;
+    cursor: pointer;
+  }
+  #navbar-overlay a {
+    text-decoration: none;
+    color:#efebe8;
+  }
+  #navbar li .active {
+    color: #b78d53 !important;
+  }
+  #navbar-overlay li .active {
+    color: #b78d53 !important;
   }
   #navbar img{
     margin: -1.5rem;
@@ -21,12 +40,13 @@
   #navbar-overlay li {
     list-style: none;
   }
-  #navbar-overlay li:hover {
+  #navbar-overlay li :hover {
    color: #333333bd;
     background-color: #efebe8;
   }
   #navbar-overlay-bar {
     padding: 0;
+    margin: 0;
   }
 #ul-l{
   border-top-left-radius: 5ex;
@@ -39,8 +59,9 @@
 #navbar {
   z-index: 100;
 }
-#navbar-overlay {
+#navbar-overlay  {
   display: none ;
+  width: 100vw;
 }
 .hidden {
   display: none;
@@ -114,4 +135,41 @@
     background-color: #efebe8;
     color: #333333;
     font-weight: bolder;
+}
+#footer
+{
+  background-color: #333333;
+  color:#a2a2a2;
+  padding: 1rem;
+  margin: 0;
+}
+#flag-info
+{
+  border-bottom: 1px solid #3e3e3e;
+  width: 100%;
+}
+.w-70 
+{
+  width: 70%;
+}
+.flag-top
+{
+  
+  border-top: 2px solid #b78d53;
+  background-color: #434343;
+  border-bottom-left-radius: 100rem;
+  border-bottom-right-radius: 100rem;
+}
+#contact-field img 
+{
+  border-radius: 50%;
+
+ 
+}
+.flag-bottom
+{
+  margin: 1px;
+   border-bottom: 2px solid #b78d53;
+  background-color: #434343;
+
 }

@@ -5,13 +5,13 @@
     top:0;
     align-items: center;
     left:0;
-
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 100vh;
     color:#efebe8;
  
 }
 .content {
-    top:25%;
+    top:20%;
     color: #513525;
     animation: TextAppear ease-in-out 2s;
     font-weight: bolder;
@@ -31,11 +31,74 @@
 #our-story {
     background:url('../../Image/our-story1.jpg') no-repeat;
     background-size: cover;
-    height: 50vh;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
 #our-story #cont {
-    left:25%;
+    padding: 1rem;
+    font-size:1.5rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+#our-story .content {
+    top:10%;
+    
+}
+#our-menu 
+{
+    background: url("../../Image/Menu-trans.jpg") no-repeat;
+    background-size: cover;
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+section {
+    padding-top:3rem;
+    padding-bottom: 5%;
+}
+
+#our-products 
+{
+    background-color:#f5f2eb ;
+}
+
+
+@media screen and (min-width:300px) and (max-width:800px) {
+    #our-menu 
+    {
+    background: url("../../Image/Menu-trans.jpg") no-repeat;
+    background-size: cover;
+    background-position-x:center;
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+#book-your-table
+{
+    background: url('../../Image/BookTable-trans.jpg') no-repeat;
+    background-size: cover;
+}
+.header-teko-font
+{
+    font-family: 'Teko', sans-serif !important;
+    font-size:4rem;
+}
+p 
+{
+    font-family: 'Lexend', sans-serif;
+}
+#customer-feedback
+{
+    background-color: #f5f2eb;
+}
+#img-view-end img
+{
+    width: 20vw;
+    height: 20vw;
+}
+#img-view-end 
+{
+    margin: 0;
+    padding:0;
 }

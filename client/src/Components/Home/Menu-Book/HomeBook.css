@@ -1,0 +1,33 @@
+#booking-table input, textarea, select
+{
+   background-color: #ece8dd;
+   color: #666466;
+   border-color: #4a4948;
+    margin: 1ex;
+}
+#booking-table textarea
+{
+    margin: 1rem;
+    padding: 1rem;
+    width: 87%;
+}
+#booking-table button:hover
+{   
+    border:1px solid #ece8dd;
+}
+@media screen and (max-width:530px) and (min-width:300px) {
+    #booking-table input, textarea
+    {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        width: 87%;
+    }
+
+    #booking-table select 
+    {
+        margin: 1rem;
+        padding: 1rem;
+        width:87%;
+    
+    }
+}

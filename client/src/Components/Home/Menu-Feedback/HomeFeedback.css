@@ -1,0 +1,48 @@
+.feedback-card
+{
+    background: url('../../../Image/feedback-card-trans.jpg') no-repeat;
+    background-size: cover;
+    width: 30vw;
+    height: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    animation: feedback-in 1.5s ease-in-out;
+    margin: 1rem;
+}
+.customer-feed-author
+{
+    font-family: 'Teko', sans-serif;
+    font-size: xx-large;
+}
+.customer-feed-line{
+    font-weight: 400;
+}
+
+@keyframes feedback-in 
+{
+    0%{ 
+        opacity: 0%;
+    }
+    100% 
+    {
+        opacity: 100%;
+    }
+}
+#side-customer-feedback button 
+{
+    color: #513525;
+    border-color:#513525 ;
+} 
+#side-customer-feedback button:hover
+{
+    color: #f5f2eb;
+    border-color:#f5f2eb;
+    background-color: #b18851;
+} 
+@media screen and (max-width:600px) and (min-width:200px) {
+    .feedback-card
+    {
+        width: 60vw;
+    }
+    
+}

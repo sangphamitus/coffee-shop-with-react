@@ -1,0 +1,24 @@
+#about-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:50vh;
+    color:white;    
+}
+#about-content-words
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../Image/about-word.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:80vh;
+    color:white;    
+}
+#about-content-words p
+{
+    color:#e8e8e8;
+}
+#about-content-words  img 
+{
+    border-radius: 50%;
+}
