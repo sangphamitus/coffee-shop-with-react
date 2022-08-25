@@ -2,26 +2,11 @@ import React,{useState} from "react";
 import './HomeFeedback.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft,faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { getFeedbackData } from "../../ControlData/FeedBackData";
 
 export default function HomeFeedback() 
 {
-    const data =[
-        {
-            'feedback':'Ullamco eu consequat pariatur sint duis ex ullamco in fugiat exercitation qui.',
-            'customer':'CHARLES JUAREZ'
-        },{
-            'feedback':'Aute sunt proident ex commodo dolore anim minim. Nisi cupidatat ullamco sunt officia consequat aliqua non ipsum nulla excepteur id. Irure commodo culpa nostrud amet.',
-            'customer':'RAICHEL SMITH'
-        },
-        {
-            'feedback':'Aute sunt proident ex commodo dolore anim minim. Nisi cupidatat ullamco sunt officia consequat aliqua non ipsum nulla excepteur id. Irure commodo culpa nostrud amet.',
-            'customer':'JOHN CARTER'
-        },
-        {
-            'feedback':'Aute sunt proident ex commodo dolore anim minim. Nisi cupidatat ullamco sunt officia consequat aliqua non ipsum nulla excepteur id. Irure commodo culpa nostrud amet.',
-            'customer':'KAYLE MADAM'
-        }
-    ]
+    const data =getFeedbackData();
     const [dispFeedback,setDisplayFeedback]=useState([0,1]);
     
 

@@ -1,25 +1,23 @@
 import React from "react";
 import './HomeProducts.css'
+import { getProductsData } from "../../ControlData/ProductsData";
+export default function HomeProducts ( {onCart,setCartOn,updateCart}){
 
-export default function HomeProducts (){
+    const data=getProductsData().slice(0,4);
 
-    const data=[{
-        "img":"https://m.media-amazon.com/images/I/81Ll6-5ufML._SX425_.jpg",
-        "namebag":"AMERICAN COFFEE",
-        "price":25.00
-    },{
-        "img":"https://m.media-amazon.com/images/I/81Ll6-5ufML._SX425_.jpg",
-        "namebag":"COST RICA LIGHT",
-        "price":35.00
-    },{
-        "img":"https://m.media-amazon.com/images/I/81Ll6-5ufML._SX425_.jpg",
-        "namebag":"JAMAICAN MOUNTAIN",
-        "price":15.00
-    },{
-        "img":"https://m.media-amazon.com/images/I/81Ll6-5ufML._SX425_.jpg",
-        "namebag":"ETHOPIAN FANCY",
-        "price":25.00
-    }]
+    const addToCard=(dataIns)=>{
+            var  tempCart=onCart;
+            const elem=tempCart.find(product=> product.productsname ===dataIns.productsname);
+            if(elem)
+            {
+                tempCart.find(product=> product.productsname===dataIns.productsname).quantities+=dataIns.quantities
+            }
+            else{
+                tempCart.push(dataIns);
+            }
+            setCartOn(prevState=>tempCart);
+            updateCart();
+    }
 
     return(
         <div id="products-menu" className="row w-100 ">
@@ -31,7 +29,13 @@ export default function HomeProducts (){
                 <p className="text-center mt-3 mb-0">{each.namebag}</p>
                 <p className="text-orange text-center">${each.price.toFixed(2)}</p>
                 <div className="d-flex justify-content-center ">
-                    <button className="add-to-card-btn">ADD TO CART</button>
+                    <button className="add-to-card-btn" onClick={e=>{
+                        addToCard({'img':each.img,
+                        'productsname':each.namebag,
+                        'price':each.price.toFixed(2),
+                        'quantities':1} );
+                        
+                    }}>ADD TO CART</button>
                 </div>
 
             </div>)}

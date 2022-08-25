@@ -1,0 +1,214 @@
+#cart-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:40vh;
+    color:white;    
+}
+#product-cart-page 
+{
+    background-color: #f5f2eb;
+}
+#product-cart-page img 
+{
+    width:90px;
+    height:90px; 
+    margin: 3px;
+    padding: 3px;
+    border-radius: 3px;
+}
+#product-cart-page p
+{
+    font-family: 'Teko',sans-serif;
+}
+#product-cart-page .productsname
+{
+    font-size: 1rem;
+    vertical-align: middle;
+}
+#product-cart-page .price
+{
+    font-size: 2rem;
+    color: #bc9354;
+}
+.inp input
+{
+    width: 40px;
+}
+#shopping-cart 
+{
+    background-color: #f5f2eb;
+    width: 65%;
+    border-radius:10px ;
+}
+#cart-calc
+{
+    
+    width: 18%;
+}
+.bdr-10 
+{   
+    border-radius: 10px;
+}
+.delete-btn
+{
+    cursor: pointer;
+}
+.delete-btn:hover
+{
+    color: red;
+}
+.btn-to-shop
+{
+    text-decoration: none;
+    background-color:red;
+    color:#f5f2eb;
+    padding: 5px;
+}
+.btn-to-shop a 
+{
+    font-size: x-large;
+    font-family: 'Teko',sans-serif !important;
+    color: #f5f2eb;
+}
+.btn-to-shop:hover
+{
+      background-color:rgb(255, 59, 59);
+    font-size: x-large;
+    font-family: 'Teko',sans-serif !important;
+    color: #f5f2eb;
+}
+#discount-content 
+{
+    font-size: 2rem;
+    background-color: white;
+    
+}
+#discount-content p
+{
+    font-size: 1.5rem;
+}
+#sum-calc
+{
+    font-size: 2rem;
+    background-color: white;
+}
+#sum-calc p 
+{
+    margin: 0;
+}
+#sum-calc .title
+{
+    font-size: 1rem;
+}
+.line
+{
+    width: 100%;
+    border: 1px solid black;
+}
+.sumup 
+{
+    color: rgb(255, 67, 67);
+}
+.order-btn
+{
+    font-size: medium;
+    background: rgb(255, 66, 78);
+    color: rgb(255, 255, 255);
+    padding: 13px 10px;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.text-red 
+{
+    color: rgb(255, 67, 67);
+}
+@media screen and (max-width:784px) and (min-width:300px) {
+    #cart-banner
+    {
+       height:20vw;
+    }
+    .col-sm-2 
+    {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        float:both;
+        
+    }
+    #function-bar .col-sm-2
+    {
+        display: none;
+    }
+    #function-bar 
+    {
+        
+        display: flex;
+    }
+    #function-bar div 
+    {
+        width: 33%;
+    }
+    
+    #cart-content-view-time .delete-btn 
+    {
+        position: absolute;
+        
+        right:30px;    
+    }
+    #product-cart-page
+    {
+        width: 100vw;
+    }
+    #shopping-cart 
+    {
+   
+        width: 100vw;
+        z-index:0;
+    }
+    #cart-calc
+    { 
+        border-radius: 5px;
+        background-color:#f5f2eb;
+        padding: 4px;
+     
+        z-index: 13;
+      
+        position:fixed;
+       
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        width: 100vw;
+        margin: 0 !important;
+    }
+    #cart-calc p {
+        font-size: medium;
+    }
+    #cart-calc .sumup 
+    {
+        font-size: x-large;
+    }
+    #cart-content-view-time .col-sm-2
+     {
+        justify-content: center;
+       width: 30%;
+       display: flex;
+       margin-left: auto
+       ;
+     }
+     .productsname 
+     {
+        font-size: x-large !important;
+        height: 10px;
+     }
+     .col-md-4 
+     {
+        align-items: center;
+     }
+}

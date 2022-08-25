@@ -17,7 +17,7 @@ import cfs5 from "../../Image/cfs5.png";
 import cfs6 from "../../Image/cfs6.jpg";
 
 
-export default function Home()
+export default function Home({onCart,setCartOn,updateCart} )
 {
     return (
         <div>
@@ -74,7 +74,7 @@ export default function Home()
                              </div>
                            
                             <div  className="w-100 d-flex" >
-                                <HomeProducts/>
+                                <HomeProducts onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>
                             </div>
                            
                      </div>  

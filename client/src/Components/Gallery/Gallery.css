@@ -1,0 +1,103 @@
+#gallery-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:50vh;
+    color:white;    
+}
+#photo-gallery
+{
+    background-color: #f5f2eb;
+}
+.button-filter
+{
+
+    outline: none;
+    cursor: pointer;
+    border:none;
+    background-color: #f5f2eb;
+    font-family: 'Teko', sans-serif;
+    font-size: x-large;
+    
+}
+.button-filter:hover
+{
+    color:#bc9354;
+}
+ .active-filter 
+{
+    color:#bc9354;
+
+}
+#change-page-button button
+{
+    margin: 1px;
+}
+#change-page-button button:hover
+{
+    background-color: #bc9354;
+    color:#f5f2eb;
+}
+#change-page-button button .active
+{
+    background-color: #bc9354;
+    color:#f5f2eb;
+}
+@media screen and (max-width:500px) and (min-width:300px) {
+    .button-filter
+    {
+        outline: none;
+        cursor: pointer;
+        border:none;
+        background-color: #f5f2eb;
+        font-family: 'Teko', sans-serif;
+        font-size: large;
+    }
+}
+#gallery-shows .w-70
+{
+    width:70%;
+}
+#gallery-shows .gar-row {
+
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+    column-gap: 10px;
+}
+
+#gallery-shows img
+{
+    
+    margin: 5px;
+    vertical-align: middle;
+    width: 100% !important;
+    height: auto !important;
+}
+@media screen and (max-width:600px) and (min-width:300px) {
+    #gallery-shows .gar-row {
+
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        column-gap: 10px;
+    }
+    
+    
+}
+#gallery-shows .show{
+	animation: fadeIn 1s ease-in-out;
+}
+#gallery-shows .hidden{
+    animation: fadeIn 1s ease-in-out;
+	display: none;
+}
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}

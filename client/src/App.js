@@ -2,10 +2,16 @@ import React,{useState,useEffect} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import {Link,Route,BrowserRouter as Router, Routes}  from 'react-router-dom'
+import ScrollToTop from "./Components/ScrollToTop";
 
 import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Menu from './Components/Menu/Menu';
+import Gallery from './Components/Gallery/Gallery';
+import Blog from './Components/Blog/Blog'
+import Contact from './Components/Contact/Contact';
+import Cart from './Components/Cart/Cart';
+import Shop from './Components/Shop/Shop';
 
 import logo from './Image/logo.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +21,7 @@ import { faMagnifyingGlass, faBagShopping,faXmark ,faBars, faLocationDot , faCal
 function App() {
   const [menuOn, setMenuOne]= useState(false);
   const [tagOn,setTagOn] =useState('home');
-  const [onCart,setOnCart] =useState([]);
+  const [onCart,setCartOn] =useState([]);
   
 
   useEffect(()=>
@@ -36,12 +42,29 @@ function App() {
       setTagOn( prevState=>'home');
     }
     console.log(tagOn);
+    setMenuOne(false)
   
+  }
+  const updateCart=()=> {
+   
+    console.log('updated')
+    if(onCart.length===0)
+    {
+      document.getElementById('cart-quantities').innerText=0;
+      document.getElementById('cart-quantities-overlay').innerText=0;
+    } else{
+      let sum=0;
+      onCart.forEach((item)=>{sum+=item.quantities});
+    document.getElementById('cart-quantities').innerText=sum;
+    document.getElementById('cart-quantities-overlay').innerText=sum;
+    }
+
   }
 
  
   return (
     <Router>
+         <ScrollToTop />
     <div id='navbar' className='navbar mt-4 d-flex justify-content-center text-center position-fixed start-0 end-0 ml-auto mr-auto w-100'>
         <ul id="ul-l" className='d-flex py-2 text-align-center'>
           <li className='d-inline p-4'><Link id='home' to="/" className={window.location.pathname.substring(1)===''?'active':''} onClick={e=>clickHandler(e)}>HOME</Link> </li>
@@ -55,7 +78,7 @@ function App() {
           <li className='d-inline p-4'><Link id='shop' to="/shop" className={window.location.pathname.substring(1)==='shop'?'active':''} onClick={e=>clickHandler(e)}>SHOP</Link></li>
           <li className='d-inline p-4'><Link id='contact' to="/contact" className={window.location.pathname.substring(1)==='contact'?'active':''} onClick={e=>clickHandler(e)}>CONTACT</Link></li>
           <li className='d-inline py-4'> <FontAwesomeIcon icon={faMagnifyingGlass} size="xl"/></li>
-          <li className='d-inline p-4 pe-5'> <FontAwesomeIcon icon={faBagShopping} size="xl"/></li>
+          <li className='d-inline p-4 pe-5'> <Link id='cart' to="/cart"> <FontAwesomeIcon icon={faBagShopping} size="xl"/><span id='cart-quantities'></span></Link></li>
         </ul>
     </div>
     <div id="navbar-overlay" className='fixed-top  start-0 end-0 ml-auto mr-auto'>
@@ -67,7 +90,7 @@ function App() {
           <div className='pe-0'>
           <ul className='d-flex p-0 pe-3'>
             <li className='p-3'> <FontAwesomeIcon icon={faMagnifyingGlass} size="xl"/></li>
-            <li className='p-3'> <FontAwesomeIcon icon={faBagShopping} size="xl"/> </li>
+            <li className='p-3'> <Link id='cart' to="/cart"> <FontAwesomeIcon icon={faBagShopping} size="xl"/><span id='cart-quantities-overlay'></span> </Link></li>
             <li id="menuOff" className={menuOn?'p-3':'p-3 hidden'} onClick={event=>{event.preventDefault();setMenuOne(prevState=>!prevState)}}> <FontAwesomeIcon icon={faXmark} size="xl"/> </li>
             <li id="menuOn" className={menuOn?'p-3 hidden':'p-3'} onClick={event=>{event.preventDefault();setMenuOne(prevState=>!prevState)}}> <FontAwesomeIcon icon={faBars} size="xl"/> </li>
           </ul>
@@ -91,16 +114,15 @@ function App() {
     </div>
        
                 <Routes>
-                    <Route exact path='/' component={<Home/>} element={<Home/>}></Route>
+                    <Route exact path='/' component={<Home  onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>} element={<Home onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>}></Route>
                     <Route path='/about' component={<About/>} element={<About/>}></Route>
                     <Route path='/menu' component={<Menu/>} element={<Menu/>}></Route>
-                
-                
+                    <Route path='/gallery' component={<Gallery/>} element={<Gallery/>}></Route>
+                    <Route path='/blog' component={<Blog/>} element={<Blog/>}></Route>
+                    <Route path='/contact' component={<Contact/>} element={<Contact/>}></Route>
+                    <Route path='/shop' component={<Shop onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>} element={<Shop onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>}></Route>
+                    <Route path='/cart' component={<Cart onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>} element={<Cart onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>}></Route>
                 </Routes>
-
-
-
-
 
     <section id='footer' className='d-flex justify-content-center w-100'>
       <div className='w-70 mt-5'>

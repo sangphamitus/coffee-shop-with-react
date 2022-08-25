@@ -166,6 +166,18 @@
 
  
 }
+#cart-quantities
+{
+    float: right;
+    display: inline;
+    position: relative;
+    text-align: center;
+    color: #efebe8;
+    font-weight: 600;
+    background-color: #b78d53;
+
+    border-radius:50px ;
+}
 .flag-bottom
 {
   margin: 1px;
