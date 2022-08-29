@@ -1,0 +1,68 @@
+
+#side-bar
+{
+  background-color:#333333;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  color: #DDDDDD;
+  z-index: 40;
+}
+
+#main-view
+{
+  background-color: #f5f2eb;
+  height:100vh;
+  position: relative;
+  padding:50px;
+  left: 3rem;
+  width: calc(100vw - 3rem);
+  margin: 0;
+}
+#black-overlay
+{
+  top:0;
+  margin: 0;
+  padding:0;
+  position:fixed;
+  width: 97.5vw;
+  left: 2.5rem;
+  background-color: #222831a9;
+  z-index: 12;
+  
+  pointer-events:none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 100vh;
+  animation:alternate-reverse 1s ease-in-out;
+}
+ 
+
+.hidden 
+{
+  display: none;
+}
+.avoid-click
+{
+  pointer-events: none;
+}
+
+@keyframes LeftToRight {
+  0% {
+    left:-10rem;
+  }
+  100% {
+    left:2.5rem;
+  }
+}
+@keyframes RightToLeft {
+100% {
+    left:-30rem;
+  }
+  0% {
+    left:2.5rem;
+  }
+}
+

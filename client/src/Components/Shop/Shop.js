@@ -1,10 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import './Shop.css'
 
 import {getProductsData} from '../ControlData/ProductsData'
 
+
 export default function Shop({onCart,setCartOn,updateCart})
 {
+    const [popUp,setPopUp]= useState(false);
     const data=getProductsData();
 
     const addToCard=(dataIns)=>{
@@ -18,6 +20,8 @@ export default function Shop({onCart,setCartOn,updateCart})
             tempCart.push(dataIns);
         }
         setCartOn(prevState=>tempCart);
+        setPopUp(prevState=>true);
+        setTimeout(()=> setPopUp(prevState=>false),1500);
         updateCart();
 }
     return (
@@ -53,6 +57,11 @@ export default function Shop({onCart,setCartOn,updateCart})
                 </div>
            
             </section>
+            <div id="pop-up"  className={popUp?'shows':'hidden'}>
+                <div className="d-flex justify-content-center"> 
+                    <p>Added product to cart</p>
+                </div>
+            </div>
         </div>
     )
 }

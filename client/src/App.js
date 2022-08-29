@@ -122,6 +122,7 @@ function App() {
                     <Route path='/contact' component={<Contact/>} element={<Contact/>}></Route>
                     <Route path='/shop' component={<Shop onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>} element={<Shop onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>}></Route>
                     <Route path='/cart' component={<Cart onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>} element={<Cart onCart={onCart} setCartOn={setCartOn} updateCart={updateCart}/>}></Route>
+            
                 </Routes>
 
     <section id='footer' className='d-flex justify-content-center w-100'>

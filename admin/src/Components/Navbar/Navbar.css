@@ -1,0 +1,42 @@
+#menu-side li .active 
+{
+
+    background-color: #bf9456 !important;
+    color: #333333 !important;
+}
+
+#menu-side li .active:hover
+{
+    background-color: #bf9456 !important;
+    border-radius: 5rem;
+}
+#menu-side li a 
+{
+ 
+  text-decoration:none;
+  color:#b7b7b7;
+
+}
+#menu-side li .row 
+{
+  
+  padding: 5px;
+  border-bottom: 1px solid #b7b7b7;
+}
+#menu-side li .row:hover 
+{
+ background-color: #bca17b;
+  border-radius: 5rem;
+  color:#333333;
+}
+
+.title
+{
+  text-align: left !important;
+  text-transform:uppercase;
+}
+#menu-side li
+{
+
+  color:#b7b7b7;
+}
