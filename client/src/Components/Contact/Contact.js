@@ -1,11 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Contact.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faBagShopping,faXmark ,faBars, faLocationDot , faCalendarDays,faClock,faF,faDove,faImagePortrait, faMugHot} from '@fortawesome/free-solid-svg-icons'
-
+import { Contacting } from '../ControlData/ContactData'
 
 export default function Contact() 
-{
+{ 
+    const [popUp,setPopUp]= useState(false);
+    const ContactHandle=(e)=>
+    {
+        e.preventDefault();
+     
+        const data={
+            name:document.getElementById('contact-name').value,
+            email:document.getElementById('contact-email').value,
+            phone:document.getElementById('contact-phone').value,
+            subject:document.getElementById('contact-subject').value,
+            message:document.getElementById('contact-message').value
+        }
+        console.log(data);
+        Contacting(data,clearInput);
+    }
+    const clearInput =() => {
+        setPopUp(prevState=>true);
+        setTimeout(()=> setPopUp(prevState=>false),1500);
+    }  
+
     return (
        <div id="contact-container">
             <section id="contact-banner" >   
@@ -62,20 +82,25 @@ export default function Contact()
                         </div>  
 
                             <div className="row justify-content-center m-2">
-                                <input className="col-sm-5 " type='text' placeholder="YOUR NAME*" required ></input>
-                                <input className="col-sm-5" type='email' placeholder="EMAIL ADDRESS*"required ></input>
+                                <input className="col-sm-5 " type='text' id="contact-name" placeholder="YOUR NAME*" required ></input>
+                                <input className="col-sm-5" type='email' id="contact-email" placeholder="EMAIL ADDRESS*"required ></input>
                             </div>
                             <div className="row justify-content-center m-2">
-                                <input className="col-sm-5 "  type='phone' placeholder="PHONE NUMBER"></input>
-                                <input className="col-sm-5 " type='text' placeholder="SUBJECT*"required ></input>
+                                <input className="col-sm-5 "  type='phone' id="contact-phone" placeholder="PHONE NUMBER"></input>
+                                <input className="col-sm-5 " type='text' id="contact-subject" placeholder="SUBJECT*"required ></input>
                             </div>
     
                             <div className="d-flex justify-content-center w-100 ">
-                                <textarea placeholder="YOUR MESSAGE..."  > </textarea>
+                                <textarea placeholder="YOUR MESSAGE..." id="contact-message"  > </textarea>
                             </div> 
                             <div className="d-flex justify-content-center w-100 ">
-                                <button id="submit-button">SUBMIT</button>
+                                <button id="submit-button" onClick={e=>ContactHandle(e)}>SUBMIT</button>
                             </div> 
+                            <div id="pop-up z-index-50"  className={popUp?'shows':'hidden'}>
+                                <div className="d-flex justify-content-center"> 
+                                    <p>Adding Contact success</p>
+                                </div>
+            </div>
                             
                     </div>        
                

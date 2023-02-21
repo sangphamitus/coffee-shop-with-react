@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Blog.css'
 
 import {Link} from 'react-router-dom'
-import { getBlogData } from '../ControlData/BlogData'
+import { getBlogData,getNumberBlog } from '../ControlData/BlogData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass,faChevronRight,faChevronLeft} from '@fortawesome/free-solid-svg-icons'
 
@@ -10,9 +10,17 @@ import { faMagnifyingGlass,faChevronRight,faChevronLeft} from '@fortawesome/free
 export default function Blog()
 {
     const postPerPage=3;
-    const numberPage=4;
-
-    const data= getBlogData();
+    const [sideData,setSideData]=useState([]);
+    const [data,setData]=useState([]);
+    const [ numberPage,setNumberPage]=useState(0);
+    useEffect(()=>
+    {
+        getNumberBlog(setNumberPage);
+        getBlogData(setData,0,3 );
+        getBlogData(setSideData,0,3 );
+             
+    },[window.location])
+    const [queryPage,setQueryPage]=useState(0);
     const [page,setPage]=useState('blog-page-1');   
     const blogButton=() =>{
         let result=[];
@@ -30,6 +38,7 @@ export default function Blog()
         buttonContainer.className="";
         setPage(prevState=> e.target.getAttribute("id"));
         e.target.className='blog-page-active';
+        getBlogData(setData,e.target.getAttribute("downValue"),e.target.getAttribute('upValue'));
         console.log(`${e.target.getAttribute("downValue")} - ${e.target.getAttribute('upValue')}`)
     }
 
@@ -46,7 +55,9 @@ export default function Blog()
             newButton.className='blog-page-active';
             
         }
-        console.log(`${buttonContainer.getAttribute("downValue")} - ${buttonContainer.getAttribute('upValue')}`)
+        const newButton=document.querySelector('#blog-page-'+current)
+        getBlogData(setData,newButton.getAttribute("downValue"),newButton.getAttribute('upValue'));
+        console.log(`${newButton.getAttribute("downValue")} - ${newButton.getAttribute('upValue')}`)
     }
     const nextButton =(e)=>{
         const buttonContainer = document.querySelector(".blog-page-active");
@@ -61,7 +72,9 @@ export default function Blog()
             newButton.className='blog-page-active';
             
         }
-        console.log(`${buttonContainer.getAttribute("downValue")} - ${buttonContainer.getAttribute('upValue')}`)
+        const newButton=document.querySelector('#blog-page-'+current)
+        getBlogData(setData,newButton.getAttribute("downValue"),newButton.getAttribute('upValue'));
+        console.log(`${newButton.getAttribute("downValue")} - ${newButton.getAttribute('upValue')}`)
     }
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -91,7 +104,7 @@ export default function Blog()
                     <div className="text-field p-3">
                         <h1 className="header-teko-font">{each.posthead}</h1>
                         <p>{each.postcontent.length<=160 ? each.postcontent : `${each.postcontent.substring(0,160)}...`}</p>
-                        <Link to='/blog' className="text-orange text-decoration-none">READ MORE ></Link>
+                        <Link to={'/blog/pid='+each.idpost} className="text-orange text-decoration-none">READ MORE ></Link>
                     </div>
 
                 </div>)
@@ -132,14 +145,16 @@ export default function Blog()
                         </div>
                         <div id='recent-posts'>
                             <p className='header-teko-font'>RECENT POSTS</p>
-                            {data.map((each,i)=><div className='d-flex mt-2' key={i}>
+                            {sideData.map((each,i)=>
+                              <Link to={'/blog/pid='+each.idpost} className="text-black text-decoration-none side">
+                                <div className='d-flex mt-2' key={i} >
                                 <img src={each.img} ></img>
                                 <div className='ms-2'>
                                     <p className='posthead'>{each.posthead}</p>
                                     <p className='time'>{ `${new Date(each.postdate).getDate()} ${months[new Date(each.postdate).getMonth()]} ${new Date(each.postdate).getFullYear()}`}</p>
                                 </div>
                              
-                            </div>)}
+                            </div></Link>)}
                         </div>
                     
                     </div>

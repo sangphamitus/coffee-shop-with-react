@@ -69,3 +69,7 @@
 {
     color: #bc9354;
 }
+.side:hover
+{
+    color: #bc9354 !important;
+}

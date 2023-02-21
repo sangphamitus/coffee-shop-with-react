@@ -1,14 +1,21 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import './Shop.css'
 
 import {getProductsData} from '../ControlData/ProductsData'
 
+import ShopingCart from "./ShopingCart";
 
-export default function Shop({onCart,setCartOn,updateCart})
+export default   function Shop({onCart,setCartOn,updateCart})
 {
     const [popUp,setPopUp]= useState(false);
-    const data=getProductsData();
+    const [data,setData]=useState([]);
+    useEffect(()=>
+    {
+        getProductsData(setData,' ')
+    },[window.location])
+   
 
+ 
     const addToCard=(dataIns)=>{
         var  tempCart=onCart;
         const elem=tempCart.find(product=> product.productsname ===dataIns.productsname);
@@ -35,26 +42,7 @@ export default function Shop({onCart,setCartOn,updateCart})
                 </div>
             </section>
             <section id="shop-view"className="d-flex justify-content-center">
-                <div className="d-flex w-70 justify-content-center row ">
-                {data.map((each,i)=> <div key={i} className='col m-3'>
-                <div className="d-flex justify-content-center">
-                    <img img src={each.img} height='200' width='190'></img>
-                </div>
-               
-                <p className="text-center mt-3 mb-0">{each.namebag}</p>
-                <p className="text-orange text-center">${each.price.toFixed(2)}</p>
-                <div className="d-flex justify-content-center ">
-                    <button className="add-to-card-btn" onClick={e=>{
-                        addToCard({'img':each.img,
-                        'productsname':each.namebag,
-                        'price':each.price.toFixed(2),
-                        'quantities':1} );
-                        
-                    }}>ADD TO CART</button>
-                </div>
-
-            </div>)}
-                </div>
+              <ShopingCart data={data} addToCard={addToCard}/>
            
             </section>
             <div id="pop-up"  className={popUp?'shows':'hidden'}>

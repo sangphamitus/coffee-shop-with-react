@@ -1,9 +1,16 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import './HomeProducts.css'
 import { getProductsData } from "../../ControlData/ProductsData";
 export default function HomeProducts ( {onCart,setCartOn,updateCart}){
 
-    const data=getProductsData().slice(0,4);
+
+    const [data,setData]=useState([]);
+    useEffect(()=>
+    {
+        getProductsData(setData,4)
+             
+     
+    },[window.location])
 
     const addToCard=(dataIns)=>{
             var  tempCart=onCart;

@@ -5,7 +5,7 @@ import './App.css';
 import {Routes,Route} from 'react-router-dom'
 
 import  React,{useState} from 'react'
-
+import 'bootstrap'
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Storage from './Components/Storage/Storage';

@@ -1,11 +1,19 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import './BlogHome.css'
 import {Link} from 'react-router-dom'
 import { getBlogData } from "../../ControlData/BlogData";
 
 export default function BlogHome()
 {   
-    const data=getBlogData();
+    const [data,setData]=useState([]);
+
+    useEffect(()=>
+    {
+        getBlogData(setData,0,3);
+        
+             
+    },[window.location])
+
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return (
         <div id='blog-container' className="w-100">
@@ -23,7 +31,7 @@ export default function BlogHome()
                     <div className="text-field p-3">
                         <h1 className="header-teko-font">{each.posthead}</h1>
                         <p>{each.postcontent.length<=160 ? each.postcontent : `${each.postcontent.substring(0,160)}...`}</p>
-                        <Link to='/blog' className="text-orange text-decoration-none">READ MORE ></Link>
+                        <Link  to={'/blog/pid='+each.idpost} className="text-orange text-decoration-none">READ MORE ></Link>
                     </div>
                 </div>)
 

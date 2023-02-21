@@ -5,16 +5,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faTrashCan}from '@fortawesome/free-solid-svg-icons'
 import ContentEditable from 'react-contenteditable'
 
+import OrderView from './DisplayCart/OrderView'
 import Displaycart from './DisplayCart/Displaycart.js'
+import { FieldContentParser } from 'swift-parser/FieldRegexpFactory'
+import { OrderHandle } from '../ControlData/OrderData'
+import BookingDone from './BookingDone/BookingDone'
 
 export default function Cart({onCart,setCartOn,updateCart}) 
 {
-
-    const [toMoney,setToMoney]=useState([]);
+    const [orderInformation,setOrderInformation]=useState(false);
+    const [toOrder,setToOrder]=useState([]);
     const [sumUp,setSumUp]=useState(0);
+    const [orderMessage,setOrderMessage]=useState("");
+    const orderButtonClick=(e)=> {
+        e.preventDefault();
+        if(toOrder.length>0)
+        {
+            console.log(toOrder);
+            setOrderInformation(prevState=>true);
 
+        }
+    }
     const calcSumUp=()=> {
+        setToOrder(prevState=>[]);
         let sum=0;
+ 
         onCart.forEach(each=> {
             const elem= document.getElementById('cart-in-'+each.productsname.replaceAll(/\s/g,''));
             if(elem)
@@ -24,11 +39,19 @@ export default function Cart({onCart,setCartOn,updateCart})
                 {
                     const price=document.getElementById('money'+each.productsname.replaceAll(/\s/g,'')).innerText;
                     sum+=Number(price);
+                   
+                    setToOrder(prevState=>[...prevState,{product:each.productsname,
+                                                        price:each.price,
+                                                        quantities:each.quantities}]) ;
+                     
                 }
+            
+           
             
             }
          
         })
+  
         setSumUp(prevState=>sum);
         
     }   
@@ -90,7 +113,7 @@ export default function Cart({onCart,setCartOn,updateCart})
             
         })
         data=[];
-
+     
         setCartOn(prevState=>data);
         updateCart();
         document.getElementById('cart-quantities').innerText=0;
@@ -118,6 +141,57 @@ export default function Cart({onCart,setCartOn,updateCart})
         calcSumUp();
         
     }
+
+
+    const orderClicked=(e)=> {
+        e.preventDefault();
+        let message="";
+        const request={ 
+            name:document.getElementById('order-name').value.trim(),
+            phone:document.getElementById('order-phone').value.trim(),
+            address:document.getElementById('order-address').value.trim(),
+            message:document.getElementById('order-message').value.trim(),
+            order:toOrder
+        }
+        if(request.name!=="" &&request.phone!==""&&request.address!=="" )
+        {
+            OrderHandle({request:request,callback:setOrderMessage})
+            document.getElementById('error-typing').innerText= message;
+            document.getElementById('order-name').classList.remove('error-field');
+            document.getElementById('order-phone').classList.remove('error-field');
+            document.getElementById('order-address').classList.remove('error-field');
+        }
+        else{
+            if(request.name==="")
+            {
+                document.getElementById('order-name').classList.add('error-field');
+                message+='name field'
+            }
+            else{
+                document.getElementById('order-name').classList.remove('error-field');
+            }
+            if(request.phone==="")
+            { 
+                message+=message.length!==0?', phone field':'phone field'
+                document.getElementById('order-phone').classList.add('error-field');
+            }
+            else{
+                document.getElementById('order-phone').classList.remove('error-field');
+            }
+            if(request.address==="")
+            { 
+                message+=message.length!==0?', address field':'address field'
+                document.getElementById('order-address').classList.add('error-field');
+            }
+            else{
+                document.getElementById('order-address').classList.remove('error-field');
+            }
+            message += ' required!'
+            document.getElementById('error-typing').innerText= message.charAt(0).toUpperCase()+ message.slice(1);
+           
+        }
+       
+    }
  
 
     return (
@@ -130,7 +204,7 @@ export default function Cart({onCart,setCartOn,updateCart})
                             
                 </div>
             </section>
-            <div id="product-cart-page" className='w-100' >
+            {orderInformation===false?(  <div id="product-cart-page" className='w-100' >
                 <div className='d-flex justify-content-center w-100 ms-auto me-auto' >
                     <div id="shopping-cart" className='row m-2 '>
                         <div className='w-100 bg-white bdr-10 mb-2 mt-2'>
@@ -172,7 +246,7 @@ export default function Cart({onCart,setCartOn,updateCart})
                         </div>
                         <div className='d-flex justify-content-center m-2'>
                             {sumUp!==0?
-                            (<button  className='header-teko-font order-btn'>ORDER</button>)
+                            (<button onClick={e=>orderButtonClick(e)} className='header-teko-font order-btn'>ORDER</button>)
                             :(null)
                             }
                             
@@ -180,10 +254,42 @@ export default function Cart({onCart,setCartOn,updateCart})
                        
                     </div>
                 </div>
-                <div className=''>
-
-                </div>
+                
+            </div>):(<div>
+                {orderMessage.length===0 ?(<div id='order-view'>
+            <div className="d-flex justify-content-center header-teko-font p-3">  
+                    <h1>Your Order</h1>
             </div>
+                <div className='d-flex justify-content-center'>
+                    <OrderView toOrder={toOrder} sumUp={sumUp} />
+                 
+                </div>
+                  
+                    <div className='d-flex justify-content-center mt-2 p-2 '>
+        
+                        <button className='me-3' style={{'border':'none','background-color':'rgb(216 214 209)'}} onClick={e=>{e.preventDefault();
+                                            setSumUp(prevState=>0);
+                                            setToOrder(prevState=>[]);
+                                            setOrderInformation(prevState=>false)}}>Back</button>
+                        <button className='ms-3 order-btn-continue' onClick={e=>orderClicked(e)}>Order</button>
+                    </div>
+                  
+                </div>):(<div >
+                    <BookingDone message={orderMessage}/>
+                    <div className='d-flex justify-content-center m-3'>
+                    <Link to="/shop" className='text-decoration-none'>
+                    <button className='btn-to-shop' onClick={e=>{
+                          setCartOn([]);
+                          updateCart();
+                          setSumUp(0);
+                          document.getElementById('cart-quantities').innerText=0;
+                          document.getElementById('cart-quantities-overlay').innerText=0;
+                    }}>Go to Shop</button>
+                    </Link>
+                    </div>
+                       
+                </div>)} </div>  )}
+          
         </div>
     )
 }
