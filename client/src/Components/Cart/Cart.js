@@ -7,7 +7,7 @@ import ContentEditable from 'react-contenteditable'
 
 import OrderView from './DisplayCart/OrderView'
 import Displaycart from './DisplayCart/Displaycart.js'
-import { FieldContentParser } from 'swift-parser/FieldRegexpFactory'
+
 import { OrderHandle } from '../ControlData/OrderData'
 import BookingDone from './BookingDone/BookingDone'
 
