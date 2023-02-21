@@ -1,0 +1,68 @@
+#contact-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:50vh;
+    color:white;    
+}
+#contact-form 
+{
+    background-color: #f5f2eb;
+}
+#contact-form .flag-top 
+{
+    border-radius: 0%;
+    background-color:#bc9354;
+    color:#f5f2eb;
+}
+#contact-form .dex 
+{
+    font-size: 1rem;
+}
+#contact-form .kdl
+{
+    font-size: 2rem ;
+    font-family: 'Teko',sans-serif ;
+}
+#drop-a-line textarea 
+{
+    width: 82%;
+    background-color: #f5f2eb;
+    height: 70%;
+}
+#drop-a-line input
+{
+    background-color:#f5f2eb;
+    padding: 3px;
+    margin: 2px;
+}
+#submit-button
+{
+    border:none;
+    background-color: #bc9354;
+    color: #f5f2eb;
+    padding:0.7rem;
+}
+#submit-button:hover 
+{
+    background-color: #f5f2eb;
+    font-weight: 800;
+    color: #bc9354;
+    border:1px solid black;
+}
+.map{
+    height: auto;
+    filter: grayscale(100%) invert(92%) contrast(83%);
+    margin: 0;
+    padding: 0;
+    background-color: #f5f2eb;
+  }
+.map iframe 
+{
+    width: 100%;
+    
+    margin: 0;
+    padding: 0;
+    
+}

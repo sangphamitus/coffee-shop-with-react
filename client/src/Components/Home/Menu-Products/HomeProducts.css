@@ -1,0 +1,18 @@
+.add-to-card-btn 
+{
+    font-weight: 600;
+    font-size:medium;
+    padding: 10px;
+}
+.add-to-card-btn:hover 
+{
+    color: aliceblue;
+    background-color: #c09457;
+    border:none;
+}
+.add-to-card-btn:checked
+{
+    color: aliceblue;
+    background-color: #c09457;
+    border:none;
+}

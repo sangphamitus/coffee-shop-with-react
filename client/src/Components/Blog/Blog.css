@@ -1,0 +1,75 @@
+#blog-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:50vh;
+    color:white;    
+}
+#blog-display
+{
+    background-color: #f5f2eb;
+}
+#content-place 
+{
+    width: 70%;
+
+}
+#function-place {
+    width: 30%;
+    margin-left:2rem ;
+}
+#blog-container img {
+    width: 100% !important;
+    height: auto !important;
+}
+#blog-container .time-stamp {
+    font-size: larger ;
+    width: 10%;
+}
+#function-place p {
+    font-size: 2rem;
+    margin-bottom: 2px;
+}
+#blog-categories li {
+   
+    font-size: 1rem;
+    margin: 0;
+    padding:0;
+    font-family: 'Teko', sans-serif !important;
+}
+@media screen and (max-width:600px) and (min-width:300px) {
+    #blog-container .time-stamp {
+       
+        width: 20% !important;
+    }
+    #function-place {
+        display: none;
+    }
+    #content-place {
+        width: 100%!important;
+    }
+}
+.blog-page-active 
+{
+    color: #f5f2eb;
+    background-color: #bc9354;
+}
+#recent-posts img 
+{
+    width: 60px !important;
+    height: 60px !important;
+}
+#recent-posts .posthead ,#recent-posts .time
+{
+    font-size: 1rem;
+    font-family: 'Teko',sans-serif;
+}
+#recent-posts .time 
+{
+    color: #bc9354;
+}
+.side:hover
+{
+    color: #bc9354 !important;
+}

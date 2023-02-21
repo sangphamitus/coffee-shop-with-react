@@ -1,0 +1,27 @@
+.tag-title
+{
+    color: #513525;
+}
+#statistic 
+{
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(104, 103, 103);
+    width: 900px;
+    height: 360px;
+}
+#total-sale 
+{
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(104, 103, 103);    
+}
+
+.text-purple 
+{
+    color:#6928D7;
+}
+.text-orange
+{
+    color: #ffac32;
+}

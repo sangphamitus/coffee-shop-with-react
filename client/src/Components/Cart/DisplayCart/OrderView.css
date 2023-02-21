@@ -1,0 +1,64 @@
+#order-view
+{
+    background-color: #f5f2eb;
+  
+}
+
+#letter-border 
+{
+    background-color: white;
+    box-shadow: 3px 3px 3px #bc9354;
+    border-radius: 8px;
+   
+}
+#letter-border th
+{   
+    border: 2px solid #f5f2eb;
+    border-radius: 8px;
+    color: #f5f2eb;
+    background-color: #bc9354  ;
+    padding:5px;
+}
+
+#letter-border td 
+{
+    border:2px solid #f5f2eb;
+    
+    padding:10px;
+}
+#info-tag textarea 
+{
+    width: 100%;
+    margin-right: 0;
+}
+.define-vat 
+{
+    font-size: small;
+    margin: 0;
+}
+#error-typing
+{
+    color:red;
+}
+.error-field
+{
+    border:2px solid red;
+}
+#info-tag input
+{
+    border-radius: 8px;
+    margin: 5px;
+}
+#order-message 
+{
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    min-height: 100px;
+    max-height: max-content;
+}
+@media screen and (max-width:784px) and (min-width:300px) {
+    #letter-border {
+        box-shadow:none ;
+    }
+}

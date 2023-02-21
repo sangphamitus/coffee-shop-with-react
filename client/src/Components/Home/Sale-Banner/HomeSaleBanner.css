@@ -1,0 +1,41 @@
+#sale-banner
+{
+    background: url('../../../Image/Coffee-bean.jpg') no-repeat ;
+    background-size: cover;
+}
+.bg-black
+{
+    background-color: #191313;
+}
+
+
+.border-orange-dash 
+{
+    border:#bf9456 2px dashed;
+}
+.shop-button
+{
+    
+    justify-content: center;
+    align-content: center;
+    font-size:1.7rem;
+    background-color: #bf9456;
+    color: #f5f2eb;
+}
+
+@media screen and (min-width:300px) and (max-width:650px) {
+    #HomeSaleBanner  img 
+     {
+        display: none;
+     }
+    #content-fils
+    {
+        padding:0 !important;
+     
+    }
+    #content-fils-capsure 
+    {
+        justify-content: center;
+        text-align: center;
+    }
+}

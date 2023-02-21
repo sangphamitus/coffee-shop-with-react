@@ -1,0 +1,39 @@
+#shop-banner
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../Image/Coffee-bean.jpg') no-repeat;
+   
+    background-size: cover ;
+    height:40vh;
+    color:white;    
+}
+#shop-view
+{
+
+    background-color: #f5f2eb;
+}
+#pop-up
+{
+   
+    justify-content: center;
+    align-content: center;
+    border-radius: 5px;
+     padding:5px;
+    color:#EEEEEE;
+    position: fixed;
+    bottom:10px;
+    left:10px;
+    background-color: #423F3E;
+    animation: popuping 1s ease-in-out;
+}
+
+@keyframes popuping {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 30;
+    }
+    100%{
+        opacity: 100;
+    }
+}

@@ -1,0 +1,42 @@
+.card {
+    background-color: antiquewhite;
+    
+}
+.login-viewpoint{
+    width: 100vw;
+    height:100vh;
+    background:url('../../Image/LoginBG.jpeg');
+
+    background-size:cover;
+}
+.login-viewpoint input {
+    border-radius: 5px;
+}
+.login-viewpoint button 
+{
+    border-radius: 5px  ;
+}
+.card 
+{
+    border-radius: 20px;
+}
+.overlay{
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(40, 40, 40, 0.687);
+    overflow: hidden;
+}
+.sub-viewpoint
+{
+    background:url('../../Image/LoginBG.jpeg') no-repeat;
+    border-radius: 10px;
+    background-size: cover;
+    width: 60%;
+    height:60%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
